@@ -6,7 +6,7 @@ const Message = () => {
 	return (
 		<div className={style.message}>
 			<div className={style.message__wrapper}>
-				<Avatar size={64} icon='C' />
+				<Avatar size={50} icon='C' />
 				<div className={style.message__content}>
 					{Array(3)
 						.fill(null)
