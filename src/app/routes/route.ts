@@ -5,6 +5,7 @@ import Wrapper from '../Wrapper'
 import NotFoundPage from '~/pages/notfound/notfound.page'
 import ScriptsPage from '~/pages/scripts/scripts.page'
 import CreateScriptPage from '~/pages/createscript/createscript.page'
+import GraphPage from '~/pages/graph/graph.page'
 export const router = createBrowserRouter([
 	{
 		path: '/',
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
 			{
 				path: '*', // Этот маршрут должен быть последним
 				Component: NotFoundPage
+			},
+			{
+				path: '/graph',
+				Component: GraphPage
 			}
 		]
 	}

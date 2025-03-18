@@ -46,7 +46,11 @@ const Header = () => {
 									</Button>
 								</Link>
 							))}
-
+						<Link to='/graph'>
+							<Button color='cyan' variant='solid' style={{ borderRadius: 15 }}>
+								На графы
+							</Button>
+						</Link>
 						<Link to='/create'>
 							<Button
 								style={{

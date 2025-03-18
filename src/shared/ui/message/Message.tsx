@@ -27,7 +27,7 @@ const Message = ({ id }: { id: string }) => {
 							<Screenplay
 								key={item.id}
 								title={item.title}
-								scenario='scenario'
+								scenario_id={item.script_id}
 							/>
 						))}
 				</div>
