@@ -4,8 +4,8 @@ import { IScript, ZScriptsArray } from '~/shared/types/scripts.interface'
 
 const getAllScripts = baseApi.injectEndpoints({
 	endpoints: builder => ({
-		getAllScripts: builder.query<IScript[], void>({
-			query: () => '/scripts',
+		getAllScripts: builder.query<IScript[], string | void>({
+			query: id => (id ? `/scripts?id=${id}` : '/scripts'),
 			transformResponse: (res: unknown) => {
 				try {
 					return ZScriptsArray.parse(res)
