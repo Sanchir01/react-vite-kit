@@ -1,0 +1,16 @@
+.message {
+	&__wrapper {
+		display: flex;
+		gap: 20px;
+	}
+	&__content {
+		padding: 24px;
+		color: antiquewhite;
+		background-color: #8e70fc;
+		border-radius: 5px 15px 15px 15px;
+
+		h3 {
+			margin: 0;
+		}
+	}
+}
