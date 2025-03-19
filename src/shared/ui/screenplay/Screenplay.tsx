@@ -19,7 +19,7 @@ const Screenplay: React.FC<IScreenplayPProps> = ({ title, scenario_id }) => {
 				<div className={style.screenplay__head}>
 					<div className={style.screenplay__title}>
 						<CheckOutlined style={{ color: 'green' }} />
-						{/* <CloseOutlined style={{ color: 'red' }} /> */}
+
 						<div className={style.screenplay__title__headline}>{title}</div>
 					</div>
 					<Button className={style.screenplay__delete}>
