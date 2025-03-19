@@ -1,6 +1,7 @@
+import { ILesson } from './../types/scripts.interface'
 import { z } from 'zod'
 import { baseApi } from '../store/api/getallscripts'
-import { ILesson, ZLesson } from '../types/scripts.interface'
+import { ZLesson } from '../types/scripts.interface'
 export interface IUpdateLesson {
 	id: string
 	title: string
@@ -13,6 +14,23 @@ const getAllLessons = baseApi.injectEndpoints({
 			transformResponse: (res: unknown) => {
 				try {
 					return ZLesson.array().parse(res)
+				} catch (error) {
+					if (error instanceof z.ZodError) {
+						console.error('Validation errors:', error.errors)
+					}
+					throw error
+				}
+			}
+		}),
+		createLesson: builder.mutation<ILesson, ILesson>({
+			query: script => ({
+				body: script,
+				url: '/lessons',
+				method: 'POST'
+			}),
+			transformResponse: (res: unknown) => {
+				try {
+					return ZLesson.parse(res)
 				} catch (error) {
 					if (error instanceof z.ZodError) {
 						console.error('Validation errors:', error.errors)
@@ -43,5 +61,8 @@ const getAllLessons = baseApi.injectEndpoints({
 	overrideExisting: true
 })
 
-export const { useGetAllLessonsQuery, useUpdateNameLessonMutation } =
-	getAllLessons
+export const {
+	useGetAllLessonsQuery,
+	useUpdateNameLessonMutation,
+	useCreateLessonMutation
+} = getAllLessons

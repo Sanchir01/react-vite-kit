@@ -33,11 +33,7 @@ const Message = ({ id }: { id: string }) => {
 				<div className={style.message__content}>
 					{lessons.length > 0 ? (
 						lessons.map((item, i) => (
-							<Screenplay
-								key={i}
-								title={item.title}
-								scenario_id={item.script_id}
-							/>
+							<Screenplay key={i} title={item.title} scenario_id={item.id} />
 						))
 					) : (
 						<p>No lessons available</p>

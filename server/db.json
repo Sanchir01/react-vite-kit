@@ -13,16 +13,12 @@
       "title": "Пройти тест"
     },
     {
-      "id": "9b0032fa-c13b-4b23-98ff-0edb8b524ace",
-      "title": "sadf2334123"
+      "id": "5443738133",
+      "title": "anton"
     },
     {
-      "id": "1818a4f0-4d1f-4a77-a360-3401b59cc6dc",
-      "title": "fdgsa213"
-    },
-    {
-      "id": "bb898ba0-9d25-468e-a13f-430bea92d794",
-      "title": "asdfadsf"
+      "id": "4046112996",
+      "title": "andrey"
     }
   ],
   "lessons": [
@@ -48,7 +44,7 @@
     },
     {
       "id": "3",
-      "title": "sanchir",
+      "title": "1",
       "script_id": "3"
     },
     {
@@ -57,19 +53,14 @@
       "script_id": "3"
     },
     {
-      "id": "208f4eec-05af-4b76-9bb5-d2c6ae866e0c",
-      "title": "5453",
-      "script_id": "9b0032fa-c13b-4b23-98ff-0edb8b524ace"
+      "id": "9366309928",
+      "title": "testingasdfaffghdfh",
+      "script_id": "5443738133"
     },
     {
-      "id": "1bd30e5d-1e38-4d85-a974-fa05fcc42425",
-      "title": "fdgsg",
-      "script_id": "1818a4f0-4d1f-4a77-a360-3401b59cc6dc"
-    },
-    {
-      "id": "856bfdc1-8ab0-4539-9553-21b2938d5c7b",
-      "title": "w1221",
-      "script_id": "bb898ba0-9d25-468e-a13f-430bea92d794"
+      "id": "4995833006",
+      "title": "biology123456789",
+      "script_id": "4046112996"
     }
   ]
 }

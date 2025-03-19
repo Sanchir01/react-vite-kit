@@ -16,7 +16,7 @@ const ModalWin: React.FC<IModalWinProps> = ({ title, lesson_id }) => {
 
 	const showModal = () => setIsModalOpen(true)
 	const handleCancel = () => setIsModalOpen(false)
-
+	console.log('lesson id', lesson_id)
 	const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		const { toast } = await import('react-toastify')
@@ -28,6 +28,7 @@ const ModalWin: React.FC<IModalWinProps> = ({ title, lesson_id }) => {
 		} catch (error) {
 			toast.error('Ошибка при изменении имени')
 			console.error(error)
+			return
 		}
 	}
 

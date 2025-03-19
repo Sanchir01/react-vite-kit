@@ -5,9 +5,7 @@ import Form from '~/shared/ui/form/Form'
 const CreateScriptPage = () => {
 	return (
 		<Container>
-			<div>
-				<Form />
-			</div>
+			<Form />
 		</Container>
 	)
 }

@@ -1,38 +1,50 @@
 import { useState } from 'react'
 import { Input, Button } from 'antd'
-import { v4 as uuidv4 } from 'uuid'
 import style from './Form.module.scss'
 import { useCreateScriptMutation } from '~/shared/service/scripts.service'
-import console from 'console'
-const script_id = uuidv4()
-
-const defaultValue = {
-	id: script_id,
-	title: '',
-	lessons: [
-		{
-			id: uuidv4(),
-			title: '',
-			script_id: script_id
-		}
-	]
-}
+import { getRandomNumber } from '~/shared/utils/utils'
+import { useCreateLessonMutation } from '~/shared/service/lessons.service'
+const script_id = getRandomNumber(1, 9999999999)
 const Form: React.FC = () => {
-	const [script, setScript] = useState(defaultValue)
+	const [script, setScript] = useState<{ id: string; title: string }>({
+		id: String(script_id),
+		title: ''
+	})
+	const [lesson, setLessons] = useState<{
+		id: string
+		title: string
+		script_id: string
+	}>({
+		id: String(getRandomNumber(1, 9999999999)),
+		title: '',
+		script_id: String(script_id)
+	})
 	const [createScript] = useCreateScriptMutation()
-
+	const [createLesson] = useCreateLessonMutation()
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		const { toast } = await import('react-toastify')
 
 		try {
-			await createScript(script)
-			setScript(defaultValue)
-			toast.success('Удачное создание ценария')
+			await createScript({ id: script.id, title: script.title })
+			await createLesson({
+				id: lesson.id,
+				title: lesson.title,
+				script_id: lesson.script_id
+			})
+			setScript({
+				id: '',
+				title: ''
+			})
+			setLessons({
+				id: '',
+				title: '',
+				script_id: ''
+			})
+			toast.success('Удачное создание сценария')
 		} catch (error) {
-			console.log(error)
+			console.error(error)
 			toast.error('Ошибка создания сценария')
-			return
 		}
 	}
 
@@ -51,16 +63,12 @@ const Form: React.FC = () => {
 					<Input
 						className={style.form__fields__input}
 						type='text'
-						placeholder='Название действия'
-						value={script.lessons[0].title}
-						onChange={e =>
-							setScript({
-								...script,
-								lessons: [{ ...script.lessons[0], title: e.target.value }]
-							})
-						}
+						placeholder='Название урока'
+						value={lesson.title}
+						onChange={e => setLessons({ ...lesson, title: e.target.value })}
 					/>
 				</div>
+
 				<Button className={style.form__submit} htmlType='submit'>
 					Создать
 				</Button>
