@@ -7,7 +7,7 @@ export default defineConfig({
 		react(),
 		compression({
 			algorithm: 'gzip',
-			threshold: 1024
+			threshold: 512
 		})
 	],
 	resolve: {
