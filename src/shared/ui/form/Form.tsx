@@ -1,17 +1,19 @@
 import { useState } from 'react'
 import { Input, Button } from 'antd'
-
+import { v4 as uuidv4 } from 'uuid'
 import style from './Form.module.scss'
 import { useCreateScriptMutation } from '~/shared/service/scripts.service'
+import console from 'console'
+const script_id = uuidv4()
 
 const defaultValue = {
-	id: '',
+	id: script_id,
 	title: '',
 	lessons: [
 		{
-			id: '',
+			id: uuidv4(),
 			title: '',
-			script_id: ''
+			script_id: script_id
 		}
 	]
 }
@@ -19,26 +21,26 @@ const Form: React.FC = () => {
 	const [script, setScript] = useState(defaultValue)
 	const [createScript] = useCreateScriptMutation()
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		createScript(script).then(() => {
+		const { toast } = await import('react-toastify')
+
+		try {
+			await createScript(script)
 			setScript(defaultValue)
-		})
+			toast.success('Удачное создание ценария')
+		} catch (error) {
+			console.log(error)
+			toast.error('Ошибка создания сценария')
+			return
+		}
 	}
 
 	return (
 		<form className={style.form} onSubmit={handleSubmit}>
 			<div className={style.form__wrapper}>
 				<h2 className={style.form__title}>Создание сценария</h2>
-
 				<div className={style.form__fields}>
-					<Input
-						className={style.form__fields__input}
-						type='text'
-						placeholder='ID cценария '
-						value={script.id}
-						onChange={e => setScript({ ...script, id: e.target.value })}
-					/>
 					<Input
 						className={style.form__fields__input}
 						type='text'

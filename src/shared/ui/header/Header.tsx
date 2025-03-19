@@ -12,7 +12,7 @@ const Header = () => {
 		isSuccess,
 		isError
 	} = useGetAllScriptsQuery()
-	console.log(scripts)
+
 	if (isLoading) {
 		return <div>Loading...</div>
 	}
