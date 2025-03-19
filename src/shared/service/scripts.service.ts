@@ -15,10 +15,20 @@ const getAllScripts = baseApi.injectEndpoints({
 					}
 					throw error
 				}
-			}
+			},
+			providesTags: () => [{ type: 'scripts' }]
+		}),
+
+		createScript: builder.mutation({
+			query: script => ({
+				body: script,
+				url: '/scripts',
+				method: 'POST'
+			}),
+			invalidatesTags: () => [{ type: 'scripts' }]
 		})
 	}),
 	overrideExisting: true
 })
 
-export const { useGetAllScriptsQuery } = getAllScripts
+export const { useGetAllScriptsQuery, useCreateScriptMutation } = getAllScripts

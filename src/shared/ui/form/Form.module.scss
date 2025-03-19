@@ -1,0 +1,28 @@
+.form {
+	background-color: #8e70fc;
+	color: antiquewhite;
+	border-radius: 15px;
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		padding: 20px;
+	}
+	&__title {
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 24px;
+	}
+	&__fields {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		&__input {
+		}
+	}
+	&__submit {
+		background-color: #927cfc;
+		color: antiquewhite;
+	}
+}
