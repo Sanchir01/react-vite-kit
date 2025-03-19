@@ -6,20 +6,30 @@ import {
 } from '@ant-design/icons'
 
 import style from './Screenplay.module.scss'
+import ModalWin from '../modal/Modal'
 
 interface IScreenplayPProps {
 	title: string
 	scenario_id: string
+	script_id: string
 }
 
-const Screenplay: React.FC<IScreenplayPProps> = ({ title, scenario_id }) => {
+const Screenplay: React.FC<IScreenplayPProps> = ({
+	script_id,
+	title,
+	scenario_id
+}) => {
 	return (
 		<div className={style.screenplay}>
 			<div className={style.screenplay__wrapper}>
 				<div className={style.screenplay__head}>
 					<div className={style.screenplay__title}>
 						<CheckOutlined style={{ color: 'green' }} />
-						<div className={style.screenplay__title__headline}>{title}</div>
+						<ModalWin
+							lesson_id={scenario_id}
+							title={title}
+							script_id={script_id}
+						/>
 					</div>
 					<Button className={style.screenplay__delete}>
 						<DeleteOutlined />

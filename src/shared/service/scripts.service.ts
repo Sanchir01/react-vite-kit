@@ -62,4 +62,8 @@ const getAllScripts = baseApi.injectEndpoints({
 	overrideExisting: true
 })
 
-export const { useGetAllScriptsQuery, useCreateScriptMutation } = getAllScripts
+export const {
+	useGetAllScriptsQuery,
+	useCreateScriptMutation,
+	useUpdateNameScriptMutation
+} = getAllScripts

@@ -60,13 +60,6 @@ const Form: React.FC = () => {
 							})
 						}
 					/>
-					<Input
-						className={style.form__fields__input}
-						type='select'
-						placeholder='Номер сценария'
-						value={script.title}
-						onChange={e => setScript({ ...script, title: e.target.value })}
-					/>
 				</div>
 				<Button className={style.form__submit} htmlType='submit'>
 					Создать

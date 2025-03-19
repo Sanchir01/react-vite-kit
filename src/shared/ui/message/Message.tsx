@@ -25,6 +25,7 @@ const Message = ({ id }: { id: string }) => {
 					{isSuccess &&
 						scripts[0].lessons.map(item => (
 							<Screenplay
+								script_id={item.script_id}
 								key={item.id}
 								title={item.title}
 								scenario_id={item.script_id}
