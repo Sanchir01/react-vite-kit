@@ -1,53 +1,36 @@
 import React, { useState } from 'react'
 import { Button, Modal, Input } from 'antd'
-
 import style from '~/shared/ui/screenplay/Screenplay.module.scss'
-import {
-	useGetAllScriptsQuery,
-	useUpdateNameScriptMutation
-} from '~/shared/service/scripts.service'
+import { useUpdateNameLessonMutation } from '~/shared/service/lessons.service'
+
 interface IModalWinProps {
 	title: string
-	script_id: string
 	lesson_id: string
 }
 
-const ModalWin: React.FC<IModalWinProps> = ({
-	title,
-	script_id,
-	lesson_id
-}) => {
+const ModalWin: React.FC<IModalWinProps> = ({ title, lesson_id }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
+	const [newTitle, setNewTitle] = useState(title)
 
-	const showModal = () => {
-		setIsModalOpen(true)
-	}
+	const [updateName, { isLoading }] = useUpdateNameLessonMutation()
 
-	console.log(lesson_id)
-	const handleOk = () => {
-		setIsModalOpen(false)
-	}
+	const showModal = () => setIsModalOpen(true)
+	const handleCancel = () => setIsModalOpen(false)
 
-	const handleCancel = () => {
-		setIsModalOpen(false)
-	}
-
-	const { data, isLoading, isSuccess } = useGetAllScriptsQuery(script_id)
-	const [updateName] = useUpdateNameScriptMutation()
-
-	const onSubmit = async () => {
+	const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault()
 		const { toast } = await import('react-toastify')
 
 		try {
-			await updateName(title)
+			await updateName({ id: lesson_id, title: newTitle }).unwrap()
 			toast.success('Удачное изменение')
+			setIsModalOpen(false)
 		} catch (error) {
 			toast.error('Ошибка при изменении имени')
-			console.log(error)
-			return
+			console.error(error)
 		}
 	}
-	console.log('this one script', data)
+
 	return (
 		<>
 			<div className={style.screenplay__title__headline} onClick={showModal}>
@@ -56,21 +39,24 @@ const ModalWin: React.FC<IModalWinProps> = ({
 			<Modal
 				title='Изменить название'
 				open={isModalOpen}
-				onOk={handleOk}
 				onCancel={handleCancel}
+				footer={null}
 			>
-				{isLoading ? (
-					<div>loading</div>
-				) : (
-					isSuccess && (
-						<form action='' onSubmit={onSubmit}>
-							<Input placeholder='Изменить назавание' type='text' />
-							<Button htmlType='submit' style={{ marginTop: '10px' }}>
-								Изменить
-							</Button>
-						</form>
-					)
-				)}
+				<form onSubmit={onSubmit}>
+					<Input
+						placeholder='Изменить название'
+						type='text'
+						value={newTitle}
+						onChange={e => setNewTitle(e.target.value)}
+					/>
+					<Button
+						htmlType='submit'
+						style={{ marginTop: '10px' }}
+						loading={isLoading}
+					>
+						Изменить
+					</Button>
+				</form>
 			</Modal>
 		</>
 	)

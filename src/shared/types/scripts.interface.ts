@@ -3,7 +3,6 @@ import { z } from 'zod'
 export interface IScript {
 	id: string
 	title: string
-	lessons: ILesson[]
 }
 
 export interface ILesson {
@@ -20,8 +19,7 @@ export const ZLesson = z.object({
 
 export const ZScript = z.object({
 	id: z.string(),
-	title: z.string(),
-	lessons: z.array(ZLesson)
+	title: z.string()
 })
 
 export const ZScriptsArray = z.array(ZScript)

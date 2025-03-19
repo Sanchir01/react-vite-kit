@@ -11,25 +11,17 @@ import ModalWin from '../modal/Modal'
 interface IScreenplayPProps {
 	title: string
 	scenario_id: string
-	script_id: string
 }
 
-const Screenplay: React.FC<IScreenplayPProps> = ({
-	script_id,
-	title,
-	scenario_id
-}) => {
+const Screenplay: React.FC<IScreenplayPProps> = ({ title, scenario_id }) => {
+	console.log(title)
 	return (
 		<div className={style.screenplay}>
 			<div className={style.screenplay__wrapper}>
 				<div className={style.screenplay__head}>
 					<div className={style.screenplay__title}>
 						<CheckOutlined style={{ color: 'green' }} />
-						<ModalWin
-							lesson_id={scenario_id}
-							title={title}
-							script_id={script_id}
-						/>
+						<ModalWin lesson_id={scenario_id} title={title} />
 					</div>
 					<Button className={style.screenplay__delete}>
 						<DeleteOutlined />

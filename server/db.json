@@ -2,94 +2,74 @@
   "scripts": [
     {
       "id": "1",
-      "title": "Главный сценарий",
-      "lessons": [
-        {
-          "id": "1",
-          "title": "Газообразное состояние",
-          "script_id": "1"
-        },
-        {
-          "id": "2",
-          "title": "Газообразное пресное агрегатное состояние",
-          "script_id": "2"
-        }
-      ]
+      "title": "Главный сценарий"
     },
     {
       "id": "2",
-      "title": "Пройти тестирование",
-      "lessons": [
-        {
-          "id": "1",
-          "title": "В море вода соленая",
-          "script_id": "1"
-        },
-        {
-          "id": "2",
-          "title": "В реке вода соленая",
-          "script_id": "2"
-        },
-        {
-          "id": "3",
-          "title": "В океане вода соленая",
-          "script_id": "3"
-        }
-      ]
+      "title": "Пройти тестирование"
     },
     {
       "id": "3",
-      "title": "Пройти тест",
-      "lessons": [
-        {
-          "id": "1",
-          "title": "Пресное состояние",
-          "script_id": "1"
-        },
-        {
-          "id": "2",
-          "title": "Жидкое",
-          "script_id": "2"
-        },
-        {
-          "id": "3",
-          "title": "Теплоемкое",
-          "script_id": "3"
-        }
-      ]
+      "title": "Пройти тест"
     },
     {
       "id": "9b0032fa-c13b-4b23-98ff-0edb8b524ace",
-      "title": "sadf2334123",
-      "lessons": [
-        {
-          "id": "208f4eec-05af-4b76-9bb5-d2c6ae866e0c",
-          "title": "5453",
-          "script_id": "9b0032fa-c13b-4b23-98ff-0edb8b524ace"
-        }
-      ]
+      "title": "sadf2334123"
     },
     {
       "id": "1818a4f0-4d1f-4a77-a360-3401b59cc6dc",
-      "title": "fdgsa213",
-      "lessons": [
-        {
-          "id": "1bd30e5d-1e38-4d85-a974-fa05fcc42425",
-          "title": "fdgsg",
-          "script_id": "1818a4f0-4d1f-4a77-a360-3401b59cc6dc"
-        }
-      ]
+      "title": "fdgsa213"
     },
     {
       "id": "bb898ba0-9d25-468e-a13f-430bea92d794",
-      "title": "asdfadsf",
-      "lessons": [
-        {
-          "id": "856bfdc1-8ab0-4539-9553-21b2938d5c7b",
-          "title": "w1221",
-          "script_id": "bb898ba0-9d25-468e-a13f-430bea92d794"
-        }
-      ]
+      "title": "asdfadsf"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "1",
+      "title": "В море вода соленаяdsfgsfdggdsgdgsfdgerwtwetjhfgjfjfjewt",
+      "script_id": "1"
+    },
+    {
+      "id": "2",
+      "title": "test12",
+      "script_id": "2"
+    },
+    {
+      "id": "1",
+      "title": "В море вода соленая",
+      "script_id": "1"
+    },
+    {
+      "id": "2",
+      "title": "В реке вода соленая",
+      "script_id": "2"
+    },
+    {
+      "id": "3",
+      "title": "sanchir",
+      "script_id": "3"
+    },
+    {
+      "id": "3",
+      "title": "Теплоемкое",
+      "script_id": "3"
+    },
+    {
+      "id": "208f4eec-05af-4b76-9bb5-d2c6ae866e0c",
+      "title": "5453",
+      "script_id": "9b0032fa-c13b-4b23-98ff-0edb8b524ace"
+    },
+    {
+      "id": "1bd30e5d-1e38-4d85-a974-fa05fcc42425",
+      "title": "fdgsg",
+      "script_id": "1818a4f0-4d1f-4a77-a360-3401b59cc6dc"
+    },
+    {
+      "id": "856bfdc1-8ab0-4539-9553-21b2938d5c7b",
+      "title": "w1221",
+      "script_id": "bb898ba0-9d25-468e-a13f-430bea92d794"
     }
   ]
 }
